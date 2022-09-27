@@ -4,30 +4,30 @@ public:
         int n = dominoes.length();
         vector<pair<int,int>> LR(n);
         string ans = "";
-        if(n <= 1){
-            return dominoes;
-        }
-        if(n == 2){
-            if(dominoes[0] == '.'){
-                if(dominoes[1] == 'L')
-                    ans += 'L';
-                else
-                    ans += dominoes[0];
-            }
-            else{
-                ans += dominoes[0];
-            }
-            if(dominoes[1] == '.'){
-                if(dominoes[0] == 'R')
-                    ans += 'R';
-                else
-                    ans += dominoes[1];
-            }
-            else{
-                ans += dominoes[1];
-            }
-            return ans;
-        }
+        // if(n <= 1){
+        //     return dominoes;
+        // }
+        // if(n == 2){
+        //     if(dominoes[0] == '.'){
+        //         if(dominoes[1] == 'L')
+        //             ans += 'L';
+        //         else
+        //             ans += dominoes[0];
+        //     }
+        //     else{
+        //         ans += dominoes[0];
+        //     }
+        //     if(dominoes[1] == '.'){
+        //         if(dominoes[0] == 'R')
+        //             ans += 'R';
+        //         else
+        //             ans += dominoes[1];
+        //     }
+        //     else{
+        //         ans += dominoes[1];
+        //     }
+        //     return ans;
+        // }
         int index = -1;
         for(int i = 1; i < n; i++){
             if(dominoes[i - 1] == 'R'){
@@ -51,7 +51,9 @@ public:
         // for(pair<int, int> p : LR){
         //     cout << p.first << " " << p.second << endl;
         // }
-        for(int i = 1; i < n - 1; i++){
+        LR[0].first = -1;
+        LR[n - 1].second = n;
+        for(int i = 0; i < n; i++){
             if(dominoes[i] == '.'){
                 if(LR[i].first == -1 && LR[i].second == n){
                     ans += '.';
@@ -80,28 +82,28 @@ public:
                 ans += dominoes[i];
             }
         }
-        if(dominoes[0] == '.'){
-            if(ans[0] == 'L'){
-                ans = ans[0] + ans;
-            }
-            else{
-                ans = '.' + ans;
-            }
-        }
-        else{
-            ans = dominoes[0] + ans;
-        }
-        if(dominoes[n - 1] == '.'){
-            if(ans[n - 2] == 'R'){
-                ans += ans[n - 2];
-            }
-            else{
-                ans += '.';
-            }
-        }
-        else{
-            ans += dominoes[n - 1];
-        }
+        // if(dominoes[0] == '.'){
+        //     if(ans[0] == 'L'){
+        //         ans = ans[0] + ans;
+        //     }
+        //     else{
+        //         ans = '.' + ans;
+        //     }
+        // }
+        // else{
+        //     ans = dominoes[0] + ans;
+        // }
+        // if(dominoes[n - 1] == '.'){
+        //     if(ans[n - 2] == 'R'){
+        //         ans += ans[n - 2];
+        //     }
+        //     else{
+        //         ans += '.';
+        //     }
+        // }
+        // else{
+        //     ans += dominoes[n - 1];
+        // }
         return ans;
     }
 };
