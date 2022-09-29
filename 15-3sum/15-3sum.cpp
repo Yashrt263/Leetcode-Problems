@@ -1,39 +1,36 @@
 class Solution {
 public:
-    vector<pair<int, int>> help(int n, int st, vector<int>& nums, int x){
-        vector<pair<int, int>> p;
-        unordered_set<int> s;
-        unordered_set<int> check;
-        for(int i = st; i < n; i++){
-            if(s.find(nums[i]) == s.end()){
-                s.insert(x - nums[i]);
-            }
-            else{
-                if(check.find(nums[i]) == check.end()){
-                    p.push_back(make_pair(nums[i], x - nums[i]));
-                    check.insert(nums[i]);
-                    check.insert(x - nums[i]);
-                }
-            }
-        }
-        return p;
-    }
     vector<vector<int>> threeSum(vector<int>& nums) {
-        int n = nums.size();
         sort(nums.begin(), nums.end());
+        int n = nums.size();
         vector<vector<int>> ans;
-        unordered_set<int> ss;
-        for(int i = 0; i < n; i++){
-            if(ss.find(nums[i]) == ss.end()){
-                ss.insert(nums[i]);
-                vector<pair<int, int>> tmp = help(n, i + 1, nums, nums[i]*(-1));
-                if(!tmp.empty()){
-                    for(pair<int,int> l : tmp){
-                        vector<int> t = {nums[i], l.first, l.second};
-                        //sort(t.begin(), t.end());
-                        ans.push_back(t);
-                    }
+        for(int i = 0; i < n - 2; i++){
+            int new_target = nums[i] * (-1);
+            int l = i + 1;
+            int r = n - 1;
+            while(l < r){
+                int remain = nums[l] + nums[r];
+                if(remain > new_target){
+                    r--;
                 }
+                else if(remain < new_target){
+                    l++;
+                }
+                else{
+                    ans.push_back({nums[i], nums[l], nums[r]});
+                    do{
+                        l++;
+                    }
+                    while(l < n && nums[l - 1] == nums[l]);
+                    do{
+                        r--;
+                    }
+                    while(r >= 0 && nums[r + 1] == nums[r]);
+                }
+                //cout << l << " " << r << endl;
+            }
+            while(i + 1 < n && nums[i + 1] == nums[i]){
+                i++;
             }
         }
         return ans;
