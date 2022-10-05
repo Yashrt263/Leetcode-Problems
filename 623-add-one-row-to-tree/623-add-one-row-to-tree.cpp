@@ -35,12 +35,12 @@ public:
         while(!q.empty()){
             TreeNode* f = q.front();
             q.pop();
-            TreeNode* child1 = new TreeNode(val);
-            child1->left = f->left;
-            f->left = child1;
-            TreeNode* child2 = new TreeNode(val);
-            child2->right = f->right;
-            f->right = child2;
+            TreeNode* temp = f->left;
+            f->left = new TreeNode(val);
+            f->left->left = temp;
+            temp = f->right;
+            f->right = new TreeNode(val);
+            f->right->right = temp;
         }
         return root;
     }
