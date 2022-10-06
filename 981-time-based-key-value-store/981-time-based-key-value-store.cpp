@@ -1,6 +1,6 @@
 class TimeMap {
 public:
-    map<string, map<int, string>> m;
+    unordered_map<string, unordered_map<int, string>> m;
     map<string, vector<int>> search;
     TimeMap() {
         
