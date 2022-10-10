@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        //sort(nums.begin(), nums.end());
         vector<vector<int>> ans;
         ans.push_back({});
         int n = nums.size();
