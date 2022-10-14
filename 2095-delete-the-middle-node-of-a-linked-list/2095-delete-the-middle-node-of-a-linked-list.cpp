@@ -14,18 +14,12 @@ public:
         if(head == NULL || head->next == NULL)
             return NULL;
         ListNode* a = head;
-        ListNode* b = head;
-        ListNode* c = head;
-        ListNode* d = head;
-        int x = 0;
+        ListNode* b = head->next->next;
         while(b != NULL && b->next != NULL){
             a = a->next;
             b = b->next->next;
-            if(x > 0)
-                c = c->next;
-            x++;
         }
-        c->next = a->next;
-        return d;
+        a->next = a->next->next;
+        return head;
     }
 };
