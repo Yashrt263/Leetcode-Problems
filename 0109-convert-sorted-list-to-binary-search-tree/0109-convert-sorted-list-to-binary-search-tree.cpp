@@ -1,10 +1,7 @@
 class Solution {
 public:
     ListNode* middle(ListNode* head){
-        if(head == NULL) return NULL;
-        if(head->next == NULL){
-            return head;
-        }
+        if(head == NULL || head->next == NULL) return head;
         ListNode* slow = head;
         ListNode* fast = head->next;
         int k = 0;
