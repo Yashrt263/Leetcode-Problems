@@ -16,9 +16,9 @@ public:
         if(root == NULL) return ans;
         queue<TreeNode*> q;
         q.push(root);
+        vector<int> tmp;
         while(!q.empty()){
             int x = q.size();
-            vector<int> tmp;
             for(int i = 1; i <= x; i++){
                 TreeNode* t = q.front();
                 q.pop();
@@ -27,6 +27,7 @@ public:
                 if(t->right != NULL) q.push(t->right);
             }
             ans.push_back(tmp);
+            tmp.clear();
         }
         reverse(ans.begin(),ans.end());
         return ans;
