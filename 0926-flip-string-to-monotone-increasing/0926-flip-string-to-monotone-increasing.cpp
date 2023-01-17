@@ -26,9 +26,6 @@ public:
         for(int i = 1; i < n; i++){
             ans = min(ans, c1[i] + c0[i - 1]);
         }
-        // for(int i : c0) cout << i << " ";
-        // cout << endl;
-        // for(int i : c1) cout << i << " ";
         return ans;
     }
 };
