@@ -1,5 +1,14 @@
 class Solution {
 public:
+    string help(string s2, string s1, int j, int m){
+        string tmp = s2.substr(j);
+        string t = tmp;
+        while(t.length() < m){
+            t += tmp;
+        }
+        if(t == s2) return tmp;
+        else return gcdOfStrings(tmp, s1);
+    }
     string gcdOfStrings(string s1, string s2) {
         int n = s1.length();
         int m = s2.length();
@@ -14,21 +23,8 @@ public:
         }
         if(i == n && j == m) return s1;
         if(i == n){
-            string tmp = s2.substr(j);
-            string t = tmp;
-            while(t.length() < m){
-                t += tmp;
-            }
-            if(t == s2) return tmp;
-            else return gcdOfStrings(tmp, s1);
+            return help(s2,s1,j,m);
         }
-        string tmp = s1.substr(i);
-        string t = tmp;
-        while(t.length() < n){
-            t += tmp;
-        }
-        if(t == s1) return tmp;
-        //cout << t << endl;
-        return gcdOfStrings(tmp, s2);
+        return help(s1,s2,i,n);
     }
 };
