@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    map<int, vector<int>> adj;
+    unordered_map<int, vector<int>> adj;
     int amountOfTime(TreeNode* root, int start) {
         queue<TreeNode*> q;
         q.push(root);
