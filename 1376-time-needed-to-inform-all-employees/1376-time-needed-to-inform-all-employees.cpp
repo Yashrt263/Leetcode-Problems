@@ -15,9 +15,9 @@ public:
             for(int i : adj[x]){
                 q.push(i);
                 time[i] = time[x] + informTime[x];
+                ans = max(ans, time[i]);
             }
         }
-        for(int i : time) ans = max(ans, i);
         return ans;
     }
 };
