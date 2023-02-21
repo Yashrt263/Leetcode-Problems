@@ -27,12 +27,10 @@ public:
         else{
             if(root->left == NULL && root->right == NULL) return NULL;
             else if(root->left == NULL){
-                TreeNode* tmp = root->right;
-                return tmp;
+                return root->right;
             }
             else if(root->right == NULL){
-                TreeNode* tmp = root->left;
-                return tmp;
+                return root->left;
             }
             
             TreeNode* tmp = Next(root->right);
