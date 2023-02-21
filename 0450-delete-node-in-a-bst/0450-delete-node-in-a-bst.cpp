@@ -13,7 +13,7 @@ class Solution {
 public:
     TreeNode* Next(TreeNode* root){
         TreeNode* t = root;
-        while(t && t->left != NULL) t = t->left;
+        while(t != NULL && t->left != NULL) t = t->left;
         return t;
     }
     TreeNode* deleteNode(TreeNode* root, int key) {
