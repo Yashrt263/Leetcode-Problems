@@ -2,7 +2,7 @@ class Solution {
 public:
     long long minimumTime(vector<int>& time, int tt) {
         int n = time.size();
-        sort(time.begin(), time.end());
+        //sort(time.begin(), time.end());
         long long int ans = LLONG_MAX;
         long long int l = 0;
         long long int r = LLONG_MAX;
