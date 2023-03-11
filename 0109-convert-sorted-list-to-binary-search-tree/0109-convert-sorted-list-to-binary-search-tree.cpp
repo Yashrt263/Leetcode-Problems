@@ -4,7 +4,6 @@ public:
         if(head == NULL || head->next == NULL) return head;
         ListNode* slow = head;
         ListNode* fast = head->next;
-        int k = 0;
         while(fast->next != NULL && fast->next->next != NULL){
             slow = slow->next;
             fast = fast->next->next;
@@ -16,8 +15,8 @@ public:
     TreeNode* sortedListToBST(ListNode* head) {
         if(head == NULL) return NULL;
         if(head->next == NULL){
-            TreeNode* root = new TreeNode(head->val);
-            return root;
+            TreeNode* tmp = new TreeNode(head->val);
+            return tmp;
         }
         ListNode* x = middle(head);
         TreeNode* root = new TreeNode(x->val);
