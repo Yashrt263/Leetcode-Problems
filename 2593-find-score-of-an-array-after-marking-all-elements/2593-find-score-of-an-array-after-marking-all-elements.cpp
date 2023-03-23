@@ -3,15 +3,13 @@ public:
     long long findScore(vector<int>& nums) {
         int n = nums.size();
         long long score = 0;
-        map<int, queue<int>> m;
+        map<int, vector<int>> m;
         for(int i = 0; i < n; i++){
-            m[nums[i]].push(i);
+            m[nums[i]].push_back(i);
         }
         vector<int> visited(n);
         for(auto x : m){
-            while(!x.second.empty()){
-                int ind = x.second.front();
-                x.second.pop();
+            for(int ind : x.second){
                 if(!visited[ind]){
                     score += x.first;
                     visited[ind] = 1;
