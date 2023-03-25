@@ -8,7 +8,6 @@ public:
             adj[v[1]].push_back(v[0]);
         }
         vector<int> visited(n);
-        vector<int> tmp;
         long long total = 0;
         for(int i = 0; i < n; i++){
             if(!visited[i]){
@@ -27,13 +26,9 @@ public:
                         }
                     }
                 }
-                tmp.push_back(cnt);
+                ans += cnt * total;
                 total += cnt;
             }
-        }
-        for(int i : tmp){
-            ans += i * (total - i);
-            total -= i;
         }
         return ans;
     }
